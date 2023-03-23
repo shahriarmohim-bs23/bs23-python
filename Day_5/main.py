@@ -21,6 +21,5 @@ while True:
           case "exit":
                break
           case _:
-              print("Invalid action") 
-              
+              print("Invalid action")           
 print("Done")
