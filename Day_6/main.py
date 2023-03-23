@@ -19,7 +19,7 @@ while True:
               todo_list = ReadFile()
               input_number = int(input("Number of todo to update: "))
               input_number = input_number-1
-              new_todo = input("Enter new todo: ")
+              new_todo = input("Enter new todo: ") + "\n"
               print(todo_list)
               todo_list.__setitem__(input_number,new_todo) 
               WriteFile(todo_list)
