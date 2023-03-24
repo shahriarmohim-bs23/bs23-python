@@ -26,7 +26,6 @@ while True:
             input_number = input_number-1
             new_todo = input("Enter new todo: ") + "\n"
             todo_list.__setitem__(input_number,new_todo) 
-            print(todo_list)
             WriteFile(todo_list)
          except ValueError:
             print("Your Command is not  valid")
