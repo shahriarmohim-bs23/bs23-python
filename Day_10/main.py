@@ -23,7 +23,6 @@ while True:
          try:
             todo_list = ReadFile()
             input_number = int(user_action[5:])
-            print(input_number)
             input_number = input_number-1
             new_todo = input("Enter new todo: ") + "\n"
             todo_list.__setitem__(input_number,new_todo) 
