@@ -7,3 +7,9 @@ try:
     print(area)
 except ValueError:
     print("Please enter a number")
+
+multi_line_string = """
+My Name is Mohim.
+I am currently working as a Software Engineer Trainee in Brain Station-23.
+"""
+print(multi_line_string)
