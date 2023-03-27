@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>TODO App</title>
+</head>
+<body>
+  <h1>TODO App</h1>
+  <form>
+    <input type="text" id="todo-input" placeholder="Add a new todo...">
+    <button type="submit" id="add-todo">Add</button>
+  </form>
+  <ul id="todo-list"></ul>
+
+  <script>
+    const todoList = document.getElementById('todo-list');
+    const todoInput = document.getElementById('todo-input');
+    const addTodoBtn = document.getElementById('add-todo');
+
+    // Function to fetch todos from the Django backend
+    const fetchTodos = async () => {
+      const response = await fetch('/api/todos/');
+      const todos = await response.json();
+      return todos;
+    };
+
+    // Function to add a new todo
+    const addTodo = async (event) => {
+      event.preventDefault();
+      const todoText = todoInput.value;
+      const response = await fetch('/api/todos/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: todoText }),
+      });
+      const newTodo = await response.json();
+      const todoItem = createTodoItem(newTodo);
+      todoList.appendChild(todoItem);
+      todoInput.value = '';
+    };
+
+    // Function to create a new todo item element
+    const createTodoItem = (todo) => {
+      const todoItem = document.createElement('li');
+      todoItem.textContent = todo.text;
+      return todoItem;
+    };
+
+    // Initial setup when page loads
+    const init = async () => {
+      const todos = await fetchTodos();
+      todos.forEach((todo) => {
+        const todoItem = createTodoItem(todo);
+        todoList.appendChild(todoItem);
+      });
+      addTodoBtn.addEventListener('click', addTodo);
+    };
+    init();
+  </script>
+</body>
+</html>
