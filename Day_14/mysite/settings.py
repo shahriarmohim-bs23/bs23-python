@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-1u$1atk-1^e7k4k1)_*3dzh$$d3z7jd+=cy*-%)7jv$4*%@m_#'
+SECRET_KEY = 'django-insecure-04yg5y!aqq!#bo+lvh0dys5_jm#$b)@@sy5p1n))^is-g35yey'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,12 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "debug_toolbar",
-    'firstapp'
+    'todo'
 ]
 
 MIDDLEWARE = [
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -51,11 +49,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-INTERNAL_IPS = [
-    # ...
-    "127.0.0.1",
-    # ...
-]
+
 ROOT_URLCONF = 'mysite.urls'
 
 TEMPLATES = [
